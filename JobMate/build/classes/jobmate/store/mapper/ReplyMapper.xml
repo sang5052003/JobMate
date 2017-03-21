@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jobmate.store.mapper.ReplyMapper">
+ 
+
+ <resultMap type="Reply" id="replyMap">
+	<id column="REPLY_NO" property="replyNo"/>
+	<result column="CONTENT" property="content"/>
+	<result column="CUSTOMER_ID" property="customerID"/> <!-- enum조심 -->
+
+<!-- 도메인에  QUESTION_NO에 대응되는 변수가 없어서 필요 없을 듯-->
+	<!-- <association property="" column="QUESTION_NO"
+			select="jobmate.store.mapper.QuestionMapper.readByQuestionNo"
+			javaType="" jdbcType="NUMERIC"></association> -->
+
+</resultMap>
+
+	<sql id="readReply">
+  		SELECT REPLY_NO, CONTENT, QUESTION_NO, CUSTOMER_ID
+  		FROM REPLY_TB
+  	</sql>
+ 
+ 	<select id="readAll" parameterType="int" resultMap="replyMap">
+  		<include refid="readReply"/>
+  		<bind name="pattern" value="_parameter"></bind>
+  		WHERE QUESTION_NO = #{pattern} <!-- 매개변수 이름으로 가능? -->
+  		<!-- WHERE QUESTION_NO = #{questionNo} 매개변수 이름으로 가능? -->
+  		ORDER BY REPLY_NO ASC
+  	</select>
+
+</mapper>
