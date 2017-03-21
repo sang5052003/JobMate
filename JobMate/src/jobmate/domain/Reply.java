@@ -4,14 +4,7 @@ public class Reply {
 	private int replyNo;
 	private String content;
 	private String customerID;
-	private int questionNo;
 	
-	public int getQuestionNo() {
-		return questionNo;
-	}
-	public void setQuestionNo(int questionNo) {
-		this.questionNo = questionNo;
-	}
 	public int getReplyNo() {
 		return replyNo;
 	}
