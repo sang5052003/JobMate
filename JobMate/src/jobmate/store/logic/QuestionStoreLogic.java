@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import jobmate.domain.Constant;
 import jobmate.domain.Question;
 import jobmate.store.QuestionStore;
 import jobmate.store.mapper.QuestionMapper;
@@ -88,15 +89,24 @@ public class QuestionStoreLogic implements QuestionStore {
 	}
 
 	@Override
-	public boolean update(Question question) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean delete(int questionNo) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		SqlSession session = this.factory.openSession();
+		boolean b = false;
+
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			b = mapper.delete(questionNo);
+			
+			if(b){
+				session.commit();
+			}else{
+				session.rollback();
+			}
+		} finally {
+			session.close();
+		}
+		return b;
 	}
 
 	//면접질문 내용(인성면접, 기술면접, 나만의 질문)에 따라 검색
@@ -109,7 +119,9 @@ public class QuestionStoreLogic implements QuestionStore {
 
 		try {
 			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
-			list = mapper.readByContent(category);
+			
+			//관리자아이디로 올려진 질문만 받아옴
+			list = mapper.readByInterview(category, Constant.ADMIN_ID); 
 
 		} finally {
 			session.close();

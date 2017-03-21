@@ -24,12 +24,9 @@ public class QuestionStoreLogicTest {
 //	@Test
 //	public void testInsert() {
 //		
-//		boolean b = this.store.insert(new Question("sang", QuestionCategory.personality, "질문내용임10", 0));
+//		boolean b = this.store.insert(new Question("kim", QuestionCategory.personality, "인성질문내용임kim", 0));
 //		
 //		assertEquals(true, b);
-//		
-//		List<Question> list = this.store.readAll();
-//		assertEquals(3, list.size());
 //	}
 //
 //	@Test
@@ -58,24 +55,24 @@ public class QuestionStoreLogicTest {
 //		assertEquals(1, list.size());
 //	}
 //
-//	@Test
-//	public void testUpdate() {
-//		fail("Not yet implemented");
-//	}
+//	
 //
 //	@Test
 //	public void testDelete() {
-//		fail("Not yet implemented");
+//		
+//		boolean b = this.store.delete(3);
+//		assertEquals(true, b);
+//		
+//		assertNull(this.store.readByQuestionNo(3));
+//		
 //	}
 //
 	@Test
 	public void testReadByInterview() {
 		
-		System.out.println(QuestionCategory.technology.toString());
-		System.out.println(QuestionCategory.technology);
-		List<Question> list = this.store.readByInterview(QuestionCategory.technology.toString());
+		List<Question> list = this.store.readByInterview(QuestionCategory.personality.toString());
 
-		assertEquals(1, list.size());
+		assertEquals(2, list.size());
 	}
 
 }

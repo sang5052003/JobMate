@@ -50,14 +50,18 @@
   		ORDER BY SCRAP_COUNT DESC
   	</select>
   	
+  	<delete id="delete" parameterType="int">
+  		DELETE
+		FROM question_tb
+		WHERE QUESTION_NO = #{questionNo}
+  	</delete>
   	
-  	<select id="readByInterview" parameterType="string" resultMap="questionMap">
+  	<!-- public boolean delete(int questionNo) -->
+  	
+  	<select id="readByInterview" parameterType="map" resultMap="questionMap">
   		<include refid="readQuestion"/>
-  		<bind name="pattern" value="category.toString()"></bind>
-  		WHERE CATEGORY = #{pattern}
-  		<!-- WHERE CATEGORY = #{category} -->
+  		WHERE CATEGORY = #{category}
+		AND CUSTOMER_ID = #{admin} <!-- 관리자id로 where절 추가 -->
   	</select>
-  	
-	<!-- public List<Question> readByInterview(String category) -->
 
 </mapper>
