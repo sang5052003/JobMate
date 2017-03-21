@@ -14,6 +14,7 @@
 		select="jobmate.store.mapper.QuestionMapper.readByQuestionNo"
 		javaType ="int" jdbcType ="NUMERIC"/>
 	
+	
 <!-- 도메인에  QUESTION_NO에 대응되는 변수가 없어서 필요 없을 듯-->
 	<!-- <association property="" column="QUESTION_NO"
 			select="jobmate.store.mapper.QuestionMapper.readByQuestionNo"

@@ -38,14 +38,14 @@ public class QuestionStoreLogicTest {
 //		
 //	}
 //
-	@Test
-	public void testReadByQuestionNo() {
-		
-		Question q = this.store.readByQuestionNo(6);
-		
-		assertEquals(QuestionCategory.personality, q.getCategory());
-		assertEquals("admin", q.getCustomerID());
-	}
+//	@Test
+//	public void testReadByQuestionNo() {
+//		
+//		Question q = this.store.readByQuestionNo(2);
+//		
+//		assertEquals(QuestionCategory.technology, q.getCategory());
+//		assertEquals("sang", q.getCustomerID());
+//	}
 //
 //	@Test
 //	public void testReadByContent() {
@@ -67,12 +67,12 @@ public class QuestionStoreLogicTest {
 //		
 //	}
 //
-//	@Test
-//	public void testReadByInterview() {
-//		
-//		List<Question> list = this.store.readByInterview(QuestionCategory.personality.toString());
-//
-//		assertEquals(2, list.size());
-//	}
+	@Test
+	public void testReadByInterview() {
+		
+		List<Question> list = this.store.readByInterview(QuestionCategory.personality.toString());
+
+		assertEquals(2, list.size());
+	}
 
 }

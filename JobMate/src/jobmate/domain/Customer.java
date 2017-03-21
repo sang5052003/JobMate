@@ -24,10 +24,6 @@ public class Customer {
 		this.password = password;
 	}
 	
-	//
-	public String getAdminID(){
-		return Constant.ADMIN_ID;
-	}
 	
 
 }
