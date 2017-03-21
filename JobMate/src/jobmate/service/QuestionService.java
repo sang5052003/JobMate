@@ -10,7 +10,6 @@ public interface QuestionService {
 	List<Question> findAll();
 	Question findByQuestionNo(int questionNo);
 	List<Question> findByContent(String content);
-	boolean modify(Question question);
 	boolean remove(int questionNo);
 
 }

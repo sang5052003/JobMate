@@ -1,6 +1,5 @@
 package jobmate.store.logic;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,7 +24,7 @@ public class IntroduceStoreLogic implements IntroduceStore {
 		boolean result = false;
 
 		try {
-			IntroduceMapper mapper = session.getMapper(IntroduceMapper.class);
+			IntroduceMapper mapper = session.getMapper(jobmate.store.mapper.IntroduceMapper.class);
 			result = mapper.insert(introduce);
 
 			if (result) {
@@ -42,118 +41,38 @@ public class IntroduceStoreLogic implements IntroduceStore {
 
 	@Override
 	public List<Introduce> readAllByCustomerID(String customerID) {
-		SqlSession session = factory.openSession();
-		List<Introduce> list =null;
-		
-		try{
-		IntroduceMapper mapper = session.getMapper(IntroduceMapper.class);
-		list=mapper.readAllByCustomerID(customerID);
-		}finally{
-			session.close();
-		}
-		return list;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public List<Introduce> readByTitle(String customerID, String title) {
-		SqlSession session = factory.openSession();
-		List<Introduce> list =null;
-		HashMap<String, String> map = new HashMap<>();
-		map.put("customerID", customerID);
-		map.put("title", title);
-		
-		try{
-		list=session.selectList("readByTitle", map);
-		}finally{
-			session.close();
-		}
-		return list;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public List<Introduce> readByContent(String customerID, String content) {
-		SqlSession session = factory.openSession();
-		List<Introduce> list =null;
-		HashMap<String, String> map = new HashMap<>();
-		map.put("customerID", customerID);
-		map.put("content", content);
-		
-		try{
-		list=session.selectList("readByContent", map);
-		}finally{
-			session.close();
-		}
-		return list;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public boolean update(Introduce introduce) {
-		SqlSession session = factory.openSession();
-		boolean result = false;
-
-		try {
-			IntroduceMapper mapper = session.getMapper(IntroduceMapper.class);
-			result = mapper.update(introduce);
-
-			if (result) {
-				session.commit();
-			} else {
-				session.rollback();
-			}
-			return result;
-
-		} finally {
-			session.close();
-		}
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean delete(int intorduceNo) {
-		SqlSession session = factory.openSession();
-		boolean result = false;
-
-		try {
-			IntroduceMapper mapper = session.getMapper(IntroduceMapper.class);
-			result = mapper.delete(intorduceNo);
-
-			if (result) {
-				session.commit();
-			} else {
-				session.rollback();
-			}
-			return result;
-
-		} finally {
-			session.close();
-		}
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public List<Introduce> readAllSpec() {
-		SqlSession session = factory.openSession();
-		List<Introduce> list =null;
-		
-		try{
-		IntroduceMapper mapper = session.getMapper(IntroduceMapper.class);
-		list=mapper.readAllSpec();
-		}finally{
-			session.close();
-		}
-		return list;
-	}
-
-	@Override
-	public Introduce readByIntroduceNo(int IntroduceNo) {
-		SqlSession session = factory.openSession();
-		Introduce introduce=null;
-		
-		try{
-		IntroduceMapper mapper = session.getMapper(IntroduceMapper.class);
-		introduce = mapper.readByIntroduceNo(IntroduceNo);
-		}finally{
-			session.close();
-		}
-		return introduce;
+	public List<Introduce> readAllSpec(String title) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

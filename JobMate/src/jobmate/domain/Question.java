@@ -10,6 +10,16 @@ public class Question {
 	private int scrapCount;
 	private List<Reply> replys;
 	
+	public Question() {}
+	
+	//questionNo는 seq라 불필요
+	public Question(String customerID, QuestionCategory category, String question, int scrapCount) {
+		this.customerID = customerID;
+		this.category = category;
+		this.question = question;
+		this.scrapCount = scrapCount;
+	}
+
 	public int getQuestionNo() {
 		return questionNo;
 	}

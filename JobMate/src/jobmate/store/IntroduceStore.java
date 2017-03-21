@@ -10,9 +10,8 @@ public interface IntroduceStore {
 	List<Introduce> readAllByCustomerID(String customerID);
 	List<Introduce> readByTitle(String customerID, String title);
 	List<Introduce> readByContent(String customerID, String content);
-	Introduce readByIntroduceNo(int IntroduceNo);
 	boolean update(Introduce introduce);
 	boolean delete(int intorduceNo);
-	List<Introduce> readAllSpec();
+	List<Introduce> readAllSpec(String title);
 }
 

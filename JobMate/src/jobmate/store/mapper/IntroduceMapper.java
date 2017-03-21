@@ -12,6 +12,5 @@ public interface IntroduceMapper {
 	List<Introduce> readByContent(String customerID, String content);
 	boolean update(Introduce introduce);
 	boolean delete(int intorduceNo);
-	List<Introduce> readAllSpec();
-	Introduce readByIntroduceNo(int IntroduceNo);
+	List<Introduce> readAllSpec(String title);
 }

@@ -16,6 +16,7 @@
     <typeAlias type="jobmate.domain.Question" alias="Question"/>
     <typeAlias type="jobmate.domain.QuestionCategory" alias="QuestionCategory"/>
     <typeAlias type="jobmate.domain.Reply" alias="Reply"/>
+    <!-- <typeAlias type="jobmate.domain.Constant" alias="Constant"/> -->
 </typeAliases>
 
 	<environments default="development"> <!-- 기본적으로 development를 쓴다 -->
