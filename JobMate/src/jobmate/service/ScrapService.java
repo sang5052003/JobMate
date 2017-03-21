@@ -5,7 +5,7 @@ import java.util.List;
 import jobmate.domain.MyRecruit;
 import jobmate.domain.Question;
 
-public interface scrapService {
+public interface ScrapService {
 	
 	boolean createMyQuestion(int questionNo, String customerID);
 	boolean removeMyQuestion(int questionNo, String customerID);

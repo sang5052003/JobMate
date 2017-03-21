@@ -12,7 +12,7 @@ public interface IntroduceService {
 	List<Introduce> findByContent(String customerID, String content);
 	boolean modify(Introduce introduce);
 	boolean remove(int intorduceNo);
-	List<Introduce> findAllSpec();
-	Introduce findbyIntroduceNo(int introduceNo);
+	Introduce findByIntroduceID(int intorduceNo); 
+	List<Introduce> findAllSpec(String title);
 
 }
